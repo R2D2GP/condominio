@@ -142,11 +142,11 @@
 <div class="flex flex-col gap-4">
 <h2 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">Acciones Rápidas</h2>
 <div class="flex flex-wrap gap-4">
-<button class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-primary hover:bg-primary/90 text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
+<button id="registrar-ingreso-btn" class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-primary hover:bg-primary/90 text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
 <span class="material-symbols-outlined">add_circle</span>
 <span>Registrar Ingreso</span>
 </button>
-<button class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-white dark:bg-surface-dark border-2 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 text-[#111418] dark:text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
+<button id="registrar-gasto-btn" class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-white dark:bg-surface-dark border-2 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 text-[#111418] dark:text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
 <span class="material-symbols-outlined">remove_circle</span>
 <span>Registrar Gasto</span>
 </button>
@@ -287,18 +287,12 @@
                     <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Fecha de recepción</label>
                     <div class="p-4 border rounded-lg dark:border-gray-600">
                         <div class="flex justify-between items-center mb-4">
-                            <button class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_left</span></button>
-                            <span class="font-bold">Octubre 2023</span>
-                            <button class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_right</span></button>
+                            <button class="prev-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_left</span></button>
+                            <span class="month-year-display font-bold"></span>
+                            <button class="next-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_right</span></button>
                         </div>
-                        <div class="grid grid-cols-7 text-center text-sm">
-                            <span class="text-gray-500">D</span><span class="text-gray-500">L</span><span class="text-gray-500">M</span><span class="text-gray-500">M</span><span class="text-gray-500">J</span><span class="text-gray-500">V</span><span class="text-gray-500">S</span>
-                            <span class="text-gray-400 p-2">28</span><span class="text-gray-400 p-2">29</span><span class="text-gray-400 p-2">30</span>
-                            <span class="p-2">1</span><span class="p-2">2</span><span class="p-2">3</span><span class="p-2">4</span>
-                            <span class="p-2 bg-green-500 text-white rounded-full">5</span><span class="p-2">6</span><span class="p-2">7</span><span class="p-2">8</span><span class="p-2">9</span><span class="p-2">10</span><span class="p-2">11</span>
-                            <span class="p-2">12</span><span class="p-2">13</span><span class="p-2">14</span><span class="p-2">15</span><span class="p-2">16</span><span class="p-2">17</span><span class="p-2">18</span>
-                            <span class="p-2">19</span><span class="p-2">20</span><span class="p-2">21</span><span class="p-2">22</span><span class="p-2">23</span><span class="p-2">24</span><span class="p-2">25</span>
-                            <span class="p-2">26</span><span class="p-2">27</span><span class="p-2">28</span><span class="p-2">29</span><span class="p-2">30</span><span class="p-2">31</span>
+                        <div class="calendar-grid grid grid-cols-7 text-center text-sm gap-y-2">
+                            <!-- Calendar days will be inserted here by JavaScript -->
                         </div>
                     </div>
                 </div>
@@ -359,18 +353,12 @@
                     <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Fecha del gasto</label>
                     <div class="p-4 border rounded-lg dark:border-gray-600">
                         <div class="flex justify-between items-center mb-4">
-                            <button class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_left</span></button>
-                            <span class="font-bold">Octubre 2023</span>
-                            <button class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_right</span></button>
+                            <button class="prev-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_left</span></button>
+                            <span class="month-year-display font-bold"></span>
+                            <button class="next-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_right</span></button>
                         </div>
-                        <div class="grid grid-cols-7 text-center text-sm">
-                            <span class="text-gray-500">D</span><span class="text-gray-500">L</span><span class="text-gray-500">M</span><span class="text-gray-500">M</span><span class="text-gray-500">J</span><span class="text-gray-500">V</span><span class="text-gray-500">S</span>
-                            <span class="text-gray-400 p-2">28</span><span class="text-gray-400 p-2">29</span><span class="text-gray-400 p-2">30</span>
-                            <span class="p-2">1</span><span class="p-2">2</span><span class="p-2">3</span><span class="p-2">4</span>
-                            <span class="p-2 bg-green-500 text-white rounded-full">5</span><span class="p-2">6</span><span class="p-2">7</span><span class="p-2">8</span><span class="p-2">9</span><span class="p-2">10</span><span class="p-2">11</span>
-                            <span class="p-2">12</span><span class="p-2">13</span><span class="p-2">14</span><span class="p-2">15</span><span class="p-2">16</span><span class="p-2">17</span><span class="p-2">18</span>
-                            <span class="p-2">19</span><span class="p-2">20</span><span class="p-2">21</span><span class="p-2">22</span><span class="p-2">23</span><span class="p-2">24</span><span class="p-2">25</span>
-                            <span class="p-2">26</span><span class="p-2">27</span><span class="p-2">28</span><span class="p-2">29</span><span class="p-2">30</span><span class="p-2">31</span>
+                        <div class="calendar-grid grid grid-cols-7 text-center text-sm gap-y-2">
+                            <!-- Calendar days will be inserted here by JavaScript -->
                         </div>
                     </div>
                 </div>
@@ -403,50 +391,5 @@
         </div>
     </div>
 </div>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // --- Modal Control ---
-
-    // Generic modal setup function
-    const setupModal = (modalId, openBtn, closeBtnSelector) => {
-      const modal = document.getElementById(modalId);
-      if (!modal || !openBtn) return;
-
-      const closeBtns = modal.querySelectorAll(closeBtnSelector);
-
-      const showModal = () => {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-      };
-
-      const hideModal = () => {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-      };
-
-      openBtn.addEventListener('click', showModal);
-      closeBtns.forEach(btn => btn.addEventListener('click', hideModal));
-    };
-
-    // Find buttons and setup modals
-    const actionButtons = document.querySelectorAll('.flex-wrap.gap-4 > button');
-    let openIngresoBtn = null;
-    let openGastoBtn = null;
-
-    actionButtons.forEach(button => {
-        const buttonTextSpan = button.querySelector('span:not(.material-symbols-outlined)');
-        if (buttonTextSpan) {
-            const buttonText = buttonTextSpan.textContent.trim();
-            if (buttonText === 'Registrar Ingreso') {
-                openIngresoBtn = button;
-            } else if (buttonText === 'Registrar Gasto') {
-                openGastoBtn = button;
-            }
-        }
-    });
-
-    setupModal('ingreso-modal', openIngresoBtn, '.close-button, .cancel-button');
-    setupModal('gasto-modal', openGastoBtn, '.close-button, .cancel-button');
-  });
-</script>
+<script src="js/calendar.js"></script>
 </body></html>
