@@ -31,31 +31,58 @@
     </script>
 <link href="styles/main.css" rel="stylesheet"/>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-[#111417]">
-<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-<!-- Top Navigation -->
-<header class="bg-white border-b border-[#f0f2f4] sticky top-0 z-50">
-<div class="px-6 md:px-10 py-3 flex items-center justify-between">
-<div class="flex items-center gap-4">
-<div class="text-primary size-8 flex items-center justify-center bg-primary/10 rounded-lg">
-<span class="material-symbols-outlined text-primary">apartment</span>
+<body class="bg-background-light dark:bg-background-dark text-[#111417] dark:text-white font-display flex h-screen overflow-hidden">
+<div class="flex h-screen w-full">
+<aside class="w-72 bg-surface-light dark:bg-surface-dark border-r border-[#dce0e5] dark:border-gray-800 flex flex-col shrink-0 transition-all duration-300 hidden md:flex">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-12 shrink-0 relative overflow-hidden bg-primary/10">
+<div class="absolute inset-0 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">apartment</span>
 </div>
-<h2 class="text-[#111417] text-xl font-bold tracking-tight">Condominio Gestión</h2>
 </div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="index.html">Inicio</a>
-<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="movimientos.html">Ingresos</a>
-<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="movimientos.html">Gastos</a>
-<a class="text-primary text-sm font-bold" href="reporte.html">Reportes</a>
-<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="#">Configuración</a>
+<div class="flex flex-col">
+<h1 class="text-[#111417] dark:text-white text-lg font-bold leading-normal">CondoGest</h1>
+<p class="text-[#647587] dark:text-gray-400 text-sm font-normal leading-normal">Panel Admin</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="index.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">grid_view</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Inicio</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="inquilinos.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">group</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Inquilinos</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="movimientos.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">payments</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Pagos</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 text-primary" href="reporte.html">
+<span class="material-symbols-outlined text-primary fill-1">description</span>
+<p class="text-primary text-base font-bold leading-normal">Reportes</p>
+</a>
+<div class="my-2 border-t border-[#dce0e5] dark:border-gray-800"></div>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="#">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">settings</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Configuración</p>
+</a>
 </nav>
-<div class="flex items-center gap-4">
-<div class="size-10 rounded-full bg-cover bg-center border border-[#e5e7eb]" data-alt="User profile photo of a middle-aged man" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4coRRRSOevXNChV93NClN0D0WBNDNO2ZpMr1uZHIjcfn_cfDmsWnEbUanixZrd4G-0fVbsMX6cK-HS1_S2g-jhgHPEqgA-e_Rhqrqvds1xEuULrBhttH1YzmVY2s6eK-BISf0C3D6JomA6evD7R36U_yIHLBAohPGwrOhpfPOWHrRg5u8E6HhflBFyARJUpA_rTk9N1PjV2LWmQihqXiJxsffhQUEWdrcnVvOU7btkkZ2IIR8j1iH6pYg9dcWDmKw8QLGQBxlCfGw");'></div>
+<div class="p-4 border-t border-[#dce0e5] dark:border-gray-800">
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer">
+<div class="size-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden" data-alt="Profile picture avatar placeholder">
+<img alt="Admin user avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6xpCjHbpjO8RbTDAwUFh1WeHi9t-6BUwdUOxpRIpRaNYHdbn9fKxsrH1ILJ8y3iw7RLUBhq6WYhxa_V-lBDLrBzLr7jMMeIU2iIvT0Jc5IrHf7B-Trpxn3bdaVntJyxVjPyjf22PmqXC5XyYZt-z1aMy5QR4vPwYc2DZFzYT1sVoIa6UK-D8O8O4VcUYfTf4NsZ5sZNuKtnS4M3nz56BrcriaWQMGG5yBPcDX3IMUPKMV1W7F8QQCdvEva5wY3GiXPzkorwjp6wHY"/>
+</div>
+<div>
+<p class="text-sm font-bold text-[#111417] dark:text-white">Admin</p>
+<p class="text-xs text-[#647587] dark:text-gray-400">Cerrar Sesión</p>
 </div>
 </div>
-</header>
-<!-- Main Content -->
-<main class="flex-1 flex flex-col items-center py-10 px-4 md:px-10">
+</div>
+</aside>
+<main class="flex-1 h-full overflow-y-auto bg-background-light dark:bg-background-dark relative">
 <div class="w-full max-w-[960px] flex flex-col gap-8">
 <!-- Page Heading -->
 <div class="flex flex-col gap-2">
