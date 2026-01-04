@@ -258,4 +258,195 @@
 </div>
 </main>
 </div>
+
+<!-- Modal Registrar Ingreso -->
+<div id="ingreso-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center p-4 z-50">
+    <div class="bg-white dark:bg-surface-dark rounded-xl shadow-lg w-full max-w-3xl transform transition-all p-8">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <h2 class="text-2xl font-bold text-[#111418] dark:text-white">Registrar Nuevo Ingreso</h2>
+                <p class="text-gray-500 dark:text-gray-400">Complete los datos del ingreso recibido por el condominio.</p>
+            </div>
+            <button type="button" class="close-button p-2 -m-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <!-- Form -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Left Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="ingreso-monto" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Monto del ingreso (S/)</label>
+                    <div class="relative">
+                        <input type="text" id="ingreso-monto" value="0.00" class="w-full h-12 px-4 py-2 text-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                        <span class="absolute inset-y-0 right-4 flex items-center text-gray-500">S/</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Fecha de recepción</label>
+                    <div class="p-4 border rounded-lg dark:border-gray-600">
+                        <div class="flex justify-between items-center mb-4">
+                            <button class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_left</span></button>
+                            <span class="font-bold">Octubre 2023</span>
+                            <button class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_right</span></button>
+                        </div>
+                        <div class="grid grid-cols-7 text-center text-sm">
+                            <span class="text-gray-500">D</span><span class="text-gray-500">L</span><span class="text-gray-500">M</span><span class="text-gray-500">M</span><span class="text-gray-500">J</span><span class="text-gray-500">V</span><span class="text-gray-500">S</span>
+                            <span class="text-gray-400 p-2">28</span><span class="text-gray-400 p-2">29</span><span class="text-gray-400 p-2">30</span>
+                            <span class="p-2">1</span><span class="p-2">2</span><span class="p-2">3</span><span class="p-2">4</span>
+                            <span class="p-2 bg-green-500 text-white rounded-full">5</span><span class="p-2">6</span><span class="p-2">7</span><span class="p-2">8</span><span class="p-2">9</span><span class="p-2">10</span><span class="p-2">11</span>
+                            <span class="p-2">12</span><span class="p-2">13</span><span class="p-2">14</span><span class="p-2">15</span><span class="p-2">16</span><span class="p-2">17</span><span class="p-2">18</span>
+                            <span class="p-2">19</span><span class="p-2">20</span><span class="p-2">21</span><span class="p-2">22</span><span class="p-2">23</span><span class="p-2">24</span><span class="p-2">25</span>
+                            <span class="p-2">26</span><span class="p-2">27</span><span class="p-2">28</span><span class="p-2">29</span><span class="p-2">30</span><span class="p-2">31</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="ingreso-categoria" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Concepto (¿De qué proviene?)</label>
+                    <select id="ingreso-categoria" class="w-full h-12 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                        <option>Seleccione una categoría</option>
+                        <option>Cuota de Mantenimiento</option>
+                        <option>Alquiler de Espacio Común</option>
+                        <option>Otros Ingresos</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="ingreso-notas" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Notas adicionales (Opcional)</label>
+                    <textarea id="ingreso-notas" rows="5" placeholder="Escriba aquí cualquier detalle extra..." class="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="flex justify-end gap-4 mt-8">
+            <button type="button" class="cancel-button h-12 px-6 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 font-bold">Cancelar</button>
+            <button type="button" class="h-12 px-6 rounded-lg bg-green-600 hover:bg-green-700 text-white font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined">save</span>
+                Guardar Ingreso
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Registrar Gasto -->
+<div id="gasto-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center p-4 z-50">
+    <div class="bg-white dark:bg-surface-dark rounded-xl shadow-lg w-full max-w-3xl transform transition-all p-8">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <h2 class="text-2xl font-bold text-[#111418] dark:text-white">Registrar Nuevo Gasto</h2>
+                <p class="text-gray-500 dark:text-gray-400">Complete los datos del gasto realizado por el condominio.</p>
+            </div>
+            <button type="button" class="close-button p-2 -m-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <!-- Form -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Left Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="gasto-monto" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Monto del gasto (S/)</label>
+                    <div class="relative">
+                        <input type="text" id="gasto-monto" value="0.00" class="w-full h-12 px-4 py-2 text-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                        <span class="absolute inset-y-0 right-4 flex items-center text-gray-500">S/</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Fecha del gasto</label>
+                    <div class="p-4 border rounded-lg dark:border-gray-600">
+                        <div class="flex justify-between items-center mb-4">
+                            <button class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_left</span></button>
+                            <span class="font-bold">Octubre 2023</span>
+                            <button class="p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_right</span></button>
+                        </div>
+                        <div class="grid grid-cols-7 text-center text-sm">
+                            <span class="text-gray-500">D</span><span class="text-gray-500">L</span><span class="text-gray-500">M</span><span class="text-gray-500">M</span><span class="text-gray-500">J</span><span class="text-gray-500">V</span><span class="text-gray-500">S</span>
+                            <span class="text-gray-400 p-2">28</span><span class="text-gray-400 p-2">29</span><span class="text-gray-400 p-2">30</span>
+                            <span class="p-2">1</span><span class="p-2">2</span><span class="p-2">3</span><span class="p-2">4</span>
+                            <span class="p-2 bg-green-500 text-white rounded-full">5</span><span class="p-2">6</span><span class="p-2">7</span><span class="p-2">8</span><span class="p-2">9</span><span class="p-2">10</span><span class="p-2">11</span>
+                            <span class="p-2">12</span><span class="p-2">13</span><span class="p-2">14</span><span class="p-2">15</span><span class="p-2">16</span><span class="p-2">17</span><span class="p-2">18</span>
+                            <span class="p-2">19</span><span class="p-2">20</span><span class="p-2">21</span><span class="p-2">22</span><span class="p-2">23</span><span class="p-2">24</span><span class="p-2">25</span>
+                            <span class="p-2">26</span><span class="p-2">27</span><span class="p-2">28</span><span class="p-2">29</span><span class="p-2">30</span><span class="p-2">31</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="gasto-categoria" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Categoría del gasto</label>
+                    <select id="gasto-categoria" class="w-full h-12 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                        <option>Seleccione una categoría</option>
+                        <option>Mantenimiento</option>
+                        <option>Servicios Públicos</option>
+                        <option>Reparaciones</option>
+                        <option>Emergencias</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="gasto-notas" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Notas adicionales (Opcional)</label>
+                    <textarea id="gasto-notas" rows="5" placeholder="Escriba aquí cualquier detalle extra..." class="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="flex justify-end gap-4 mt-8">
+            <button type="button" class="cancel-button h-12 px-6 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 font-bold">Cancelar</button>
+            <button type="button" class="h-12 px-6 rounded-lg bg-green-600 hover:bg-green-700 text-white font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined">save</span>
+                Guardar Gasto
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // --- Modal Control ---
+
+    // Generic modal setup function
+    const setupModal = (modalId, openBtn, closeBtnSelector) => {
+      const modal = document.getElementById(modalId);
+      if (!modal || !openBtn) return;
+
+      const closeBtns = modal.querySelectorAll(closeBtnSelector);
+
+      const showModal = () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      };
+
+      const hideModal = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      };
+
+      openBtn.addEventListener('click', showModal);
+      closeBtns.forEach(btn => btn.addEventListener('click', hideModal));
+    };
+
+    // Find buttons and setup modals
+    const actionButtons = document.querySelectorAll('.flex-wrap.gap-4 > button');
+    let openIngresoBtn = null;
+    let openGastoBtn = null;
+
+    actionButtons.forEach(button => {
+        const buttonTextSpan = button.querySelector('span:not(.material-symbols-outlined)');
+        if (buttonTextSpan) {
+            const buttonText = buttonTextSpan.textContent.trim();
+            if (buttonText === 'Registrar Ingreso') {
+                openIngresoBtn = button;
+            } else if (buttonText === 'Registrar Gasto') {
+                openGastoBtn = button;
+            }
+        }
+    });
+
+    setupModal('ingreso-modal', openIngresoBtn, '.close-button, .cancel-button');
+    setupModal('gasto-modal', openGastoBtn, '.close-button, .cancel-button');
+  });
+</script>
 </body></html>
