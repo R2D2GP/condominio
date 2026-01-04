@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panel Principal - Condominio Los Andes</title>
+<!-- Fonts and Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1a2632",
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display overflow-hidden">
+<div class="flex h-screen w-full">
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-surface-light dark:bg-surface-dark border-r border-gray-200 dark:border-gray-800 flex-col hidden md:flex h-full transition-colors duration-200">
+<div class="flex flex-col h-full p-4">
+<!-- User Profile -->
+<div class="flex gap-3 mb-8 items-center p-2">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-12 shadow-sm" data-alt="Portrait of the administrator" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAg3ThMgV6UvWhS8rul6mjoEqEiphGl4kYzU9ThY7xLWRL-m-GV6PxOdfPwqJc_G2VAycOy2VR5y4foUe6YR0rqu5RN1U-sl3WTaU_mY2WlXztDVyrHUo147NBBauS4gVXapUG8l12P9J3aBQEACI3LhEOqvw8QN897l3UpeyE2FVE9Aj4g6D3MXuaTS_HwuVccgIXyblgxX3336IjZJSHYOUW9pvL9lZGnKmwAhU3vboQZHavxzW1WBVCfhl03iI0QCF_Jjh4H6bCm");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#111418] dark:text-white text-base font-bold leading-normal">Hola, Roberto</h1>
+<p class="text-[#617589] dark:text-gray-400 text-sm font-normal leading-normal">Condominio Los Andes</p>
+</div>
+</div>
+<!-- Nav Menu -->
+<nav class="flex flex-col gap-2 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary group transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]">dashboard</span>
+<p class="text-base font-bold leading-normal">Panel Principal</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#111418] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]">group</span>
+<p class="text-base font-medium leading-normal">Vecinos</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#111418] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]">arrow_circle_up</span>
+<p class="text-base font-medium leading-normal">Ingresos</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#111418] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]">arrow_circle_down</span>
+<p class="text-base font-medium leading-normal">Gastos</p>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#111418] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]">description</span>
+<p class="text-base font-medium leading-normal">Reportes</p>
+</a>
+</nav>
+<!-- Footer / Logout -->
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[24px]">logout</span>
+<p class="text-base font-medium leading-normal">Cerrar Sesión</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 h-full overflow-y-auto bg-background-light dark:bg-background-dark relative">
+<div class="max-w-[1200px] mx-auto p-6 md:p-8 flex flex-col gap-8 pb-20">
+<!-- Page Heading -->
+<header class="flex flex-col md:flex-row md:justify-between md:items-end gap-4">
+<div class="flex flex-col gap-2">
+<h2 class="text-[#111418] dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Panel Principal</h2>
+<p class="text-[#617589] dark:text-gray-400 text-lg font-normal leading-normal">Resumen económico de Octubre 2023</p>
+</div>
+<div class="bg-white dark:bg-surface-dark px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-gray-500">calendar_today</span>
+<span class="text-sm font-medium dark:text-gray-300">Octubre 2023</span>
+</div>
+</header>
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Income Card -->
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-surface-dark border border-[#dbe0e6] dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-700 dark:text-green-400">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<p class="text-[#617589] dark:text-gray-400 text-base font-medium">Ingresos del Mes</p>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-4xl font-bold leading-tight tracking-tight">$1,200.00</p>
+<div class="flex items-center gap-1 mt-2 text-[#078838] dark:text-green-400">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<p class="text-sm font-medium">+5% vs mes anterior</p>
+</div>
+</div>
+</div>
+<!-- Expenses Card -->
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-surface-dark border border-[#dbe0e6] dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-red-100 dark:bg-red-900/30 rounded-lg text-red-700 dark:text-red-400">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<p class="text-[#617589] dark:text-gray-400 text-base font-medium">Gastos del Mes</p>
+</div>
+<div>
+<p class="text-[#111418] dark:text-white text-4xl font-bold leading-tight tracking-tight">$450.00</p>
+<div class="flex items-center gap-1 mt-2 text-[#e73908] dark:text-red-400">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400"><span class="text-[#e73908] dark:text-red-400">-2%</span> bajo lo esperado</p>
+</div>
+</div>
+</div>
+<!-- Balance Card (Highlighted) -->
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-gradient-to-br from-primary to-[#0f65c0] text-white shadow-lg relative overflow-hidden group">
+<!-- Abstract decoration -->
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-xl group-hover:bg-white/20 transition-all"></div>
+<div class="flex items-center gap-3 relative z-10">
+<div class="p-2 bg-white/20 rounded-lg text-white">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<p class="text-white/90 text-base font-medium">Saldo Actual (Caja)</p>
+</div>
+<div class="relative z-10">
+<p class="text-white text-5xl font-bold leading-tight tracking-tight">$750.00</p>
+<div class="flex items-center gap-1 mt-2 text-white/80">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<p class="text-sm font-medium">Finanzas Saludables</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Section -->
+<div class="flex flex-col gap-4">
+<h2 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">Acciones Rápidas</h2>
+<div class="flex flex-wrap gap-4">
+<button class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-primary hover:bg-primary/90 text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Registrar Ingreso</span>
+</button>
+<button class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-white dark:bg-surface-dark border-2 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 text-[#111418] dark:text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">remove_circle</span>
+<span>Registrar Gasto</span>
+</button>
+</div>
+</div>
+<!-- Monthly Summary / Recent Transactions -->
+<div class="flex flex-col gap-4 mt-2">
+<div class="flex justify-between items-center">
+<h2 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">Movimientos Recientes</h2>
+<button class="text-primary font-bold text-sm hover:underline">Ver todo</button>
+</div>
+<div class="rounded-xl border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-surface-dark overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-700">
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400">Fecha</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400 w-1/2">Descripción</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400">Categoría</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400 text-right">Monto</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400 text-center">Estado</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+<!-- Row 1 -->
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="p-4 text-gray-600 dark:text-gray-300 text-sm whitespace-nowrap">24 Oct</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="font-bold text-[#111418] dark:text-white text-base">Cuota Mantenimiento #302</span>
+<span class="text-xs text-gray-500">Familia González</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
+                                                Ingreso
+                                            </span>
+</td>
+<td class="p-4 text-right font-bold text-green-600 dark:text-green-400 text-lg">+$150.00</td>
+<td class="p-4 text-center">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400" title="Confirmado">check_circle</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="p-4 text-gray-600 dark:text-gray-300 text-sm whitespace-nowrap">22 Oct</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="font-bold text-[#111418] dark:text-white text-base">Pago Servicio de Jardinería</span>
+<span class="text-xs text-gray-500">Mantenimiento áreas verdes</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200">
+                                                Gasto
+                                            </span>
+</td>
+<td class="p-4 text-right font-bold text-[#111418] dark:text-white text-lg">-$80.00</td>
+<td class="p-4 text-center">
+<span class="material-symbols-outlined text-gray-400" title="Pendiente">schedule</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="p-4 text-gray-600 dark:text-gray-300 text-sm whitespace-nowrap">20 Oct</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="font-bold text-[#111418] dark:text-white text-base">Cuota Mantenimiento #101</span>
+<span class="text-xs text-gray-500">Sr. Ramírez</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
+                                                Ingreso
+                                            </span>
+</td>
+<td class="p-4 text-right font-bold text-green-600 dark:text-green-400 text-lg">+$150.00</td>
+<td class="p-4 text-center">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400" title="Confirmado">check_circle</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+<td class="p-4 text-gray-600 dark:text-gray-300 text-sm whitespace-nowrap">18 Oct</td>
+<td class="p-4">
+<div class="flex flex-col">
+<span class="font-bold text-[#111418] dark:text-white text-base">Reparación Bomba de Agua</span>
+<span class="text-xs text-gray-500">Emergencia técnica</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200">
+                                                Emergencia
+                                            </span>
+</td>
+<td class="p-4 text-right font-bold text-[#111418] dark:text-white text-lg">-$250.00</td>
+<td class="p-4 text-center">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400" title="Confirmado">check_circle</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800/30 p-4 text-center border-t border-gray-100 dark:border-gray-700">
+<p class="text-sm text-gray-500">Mostrando últimos 4 movimientos</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reporte por Fechas - Condominio Gestión</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4c99e6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "2xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Lexend', 'Noto Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111417]">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="bg-white border-b border-[#f0f2f4] sticky top-0 z-50">
+<div class="px-6 md:px-10 py-3 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="text-primary size-8 flex items-center justify-center bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">apartment</span>
+</div>
+<h2 class="text-[#111417] text-xl font-bold tracking-tight">Condominio Gestión</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="#">Inicio</a>
+<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="#">Ingresos</a>
+<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="#">Gastos</a>
+<a class="text-primary text-sm font-bold" href="#">Reportes</a>
+<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="#">Configuración</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-cover bg-center border border-[#e5e7eb]" data-alt="User profile photo of a middle-aged man" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4coRRRSOevXNChV93NClN0D0WBNDNO2ZpMr1uZHIjcfn_cfDmsWnEbUanixZrd4G-0fVbsMX6cK-HS1_S2g-jhgHPEqgA-e_Rhqrqvds1xEuULrBhttH1YzmVY2s6eK-BISf0C3D6JomA6evD7R36U_yIHLBAohPGwrOhpfPOWHrRg5u8E6HhflBFyARJUpA_rTk9N1PjV2LWmQihqXiJxsffhQUEWdrcnVvOU7btkkZ2IIR8j1iH6pYg9dcWDmKw8QLGQBxlCfGw");'></div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col items-center py-10 px-4 md:px-10">
+<div class="w-full max-w-[960px] flex flex-col gap-8">
+<!-- Page Heading -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary/80 mb-2">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+<span class="text-sm font-medium cursor-pointer">Volver al panel</span>
+</div>
+<h1 class="text-[#111417] text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Reporte por Fechas</h1>
+<p class="text-[#647587] text-lg font-normal leading-relaxed max-w-2xl">
+                        Seleccione la fecha de inicio y fin para consultar los movimientos económicos del condominio.
+                    </p>
+</div>
+<!-- Date Selection Card -->
+<div class="bg-white rounded-2xl border border-[#e5e7eb] shadow-sm p-6 md:p-8 flex flex-col gap-6">
+<!-- Input Simulation -->
+<div class="flex flex-wrap gap-6 items-end">
+<div class="flex flex-col gap-2 flex-1 min-w-[200px]">
+<label class="text-[#111417] text-sm font-bold uppercase tracking-wider ml-1">Fecha Inicio</label>
+<div class="flex items-center gap-3 p-4 bg-background-light rounded-xl border border-transparent hover:border-primary/30 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[#647587] group-hover:text-primary">calendar_today</span>
+<span class="text-[#111417] text-lg font-medium">05 Enero 2024</span>
+</div>
+</div>
+<div class="hidden md:flex pb-4 text-[#647587]">
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+<div class="flex flex-col gap-2 flex-1 min-w-[200px]">
+<label class="text-[#111417] text-sm font-bold uppercase tracking-wider ml-1">Fecha Fin</label>
+<div class="flex items-center gap-3 p-4 bg-background-light rounded-xl border border-transparent hover:border-primary/30 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[#647587] group-hover:text-primary">event</span>
+<span class="text-[#111417] text-lg font-medium">07 Febrero 2024</span>
+</div>
+</div>
+</div>
+<div class="h-px bg-[#f0f2f4] w-full my-2"></div>
+<!-- Calendar Visual -->
+<div class="flex flex-wrap justify-center gap-8 md:gap-12">
+<!-- Left Month -->
+<div class="flex flex-col gap-4 w-full max-w-[320px]">
+<div class="flex items-center justify-between px-2">
+<button class="p-2 hover:bg-background-light rounded-full transition-colors">
+<span class="material-symbols-outlined text-[#111417]">chevron_left</span>
+</button>
+<span class="text-[#111417] text-base font-bold">Enero 2024</span>
+<div class="w-10"></div> <!-- Spacer for alignment -->
+</div>
+<div class="grid grid-cols-7 gap-y-2 text-center">
+<div class="text-[#647587] text-xs font-bold uppercase py-2">D</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">L</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">M</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">M</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">J</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">V</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">S</div>
+<!-- Days -->
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full text-gray-300 text-sm">31</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">1</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">2</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">3</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">4</div></div>
+<!-- Start Date Selection -->
+<div class="p-1 relative">
+<div class="absolute inset-y-1 left-1/2 right-0 bg-primary/10"></div>
+<div class="relative size-9 flex items-center justify-center rounded-full bg-primary text-white font-bold shadow-md cursor-pointer text-sm">5</div>
+</div>
+<div class="p-1 relative">
+<div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div>
+<div class="relative size-9 flex items-center justify-center rounded-full hover:bg-primary/20 cursor-pointer text-[#111417] text-sm">6</div>
+</div>
+<div class="p-1 relative">
+<div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div>
+<div class="relative size-9 flex items-center justify-center rounded-full hover:bg-primary/20 cursor-pointer text-[#111417] text-sm">7</div>
+</div>
+<!-- Middle Days simulation -->
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">8</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">9</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">10</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">11</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">12</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">13</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">14</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">15</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">16</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">17</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">18</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">19</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">20</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">21</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">22</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">23</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">24</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">25</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">26</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">27</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">28</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">29</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">30</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">31</div></div>
+</div>
+</div>
+<!-- Right Month -->
+<div class="flex flex-col gap-4 w-full max-w-[320px]">
+<div class="flex items-center justify-between px-2">
+<div class="w-10"></div> <!-- Spacer -->
+<span class="text-[#111417] text-base font-bold">Febrero 2024</span>
+<button class="p-2 hover:bg-background-light rounded-full transition-colors">
+<span class="material-symbols-outlined text-[#111417]">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 gap-y-2 text-center">
+<div class="text-[#647587] text-xs font-bold uppercase py-2">D</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">L</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">M</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">M</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">J</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">V</div>
+<div class="text-[#647587] text-xs font-bold uppercase py-2">S</div>
+<!-- Feb Days -->
+<div class="p-1"></div> <!-- Empty cell for alignment if needed, assume starting correctly for visual -->
+<div class="p-1"></div>
+<div class="p-1"></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">1</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">2</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">3</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">4</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">5</div></div>
+<div class="p-1 relative"><div class="absolute inset-y-1 inset-x-0 bg-primary/10"></div><div class="relative size-9 flex items-center justify-center text-[#111417] text-sm">6</div></div>
+<!-- End Date -->
+<div class="p-1 relative">
+<div class="absolute inset-y-1 right-1/2 left-0 bg-primary/10"></div>
+<div class="relative size-9 flex items-center justify-center rounded-full bg-primary text-white font-bold shadow-md cursor-pointer text-sm">7</div>
+</div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">8</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">9</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">10</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">11</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">12</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">13</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">14</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">15</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">16</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">17</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">18</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">19</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">20</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">21</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">22</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">23</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">24</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">25</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">26</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">27</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">28</div></div>
+<div class="p-1"><div class="size-9 flex items-center justify-center rounded-full hover:bg-background-light cursor-pointer text-[#111417] text-sm">29</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Generate Button -->
+<div class="flex justify-center pt-2">
+<button class="flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-8 bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all active:scale-95">
+<span class="material-symbols-outlined mr-2">bar_chart_4_bars</span>
+<span class="text-lg font-bold tracking-wide">GENERAR REPORTE</span>
+</button>
+</div>
+<!-- Results Section -->
+<div class="flex flex-col gap-6 mt-6">
+<div class="flex items-center gap-3">
+<div class="h-8 w-1 bg-primary rounded-full"></div>
+<h3 class="text-[#111417] text-2xl font-bold">Resumen del Período</h3>
+<span class="text-sm font-medium text-[#647587] bg-white px-3 py-1 rounded-full border border-[#e5e7eb]">05 Ene - 07 Feb 2024</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Income Card -->
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-[#e5e7eb] flex flex-col gap-3 group hover:border-primary/50 transition-colors">
+<div class="flex items-center justify-between">
+<p class="text-[#647587] text-sm font-semibold uppercase tracking-wide">Total Ingresos</p>
+<div class="size-10 rounded-full bg-green-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-600">arrow_upward</span>
+</div>
+</div>
+<p class="text-[#111417] text-4xl font-bold tracking-tight">$ 15,200.00</p>
+<div class="flex items-center gap-2">
+<span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-bold">+12%</span>
+<span class="text-[#647587] text-sm">vs. mes anterior</span>
+</div>
+</div>
+<!-- Expenses Card -->
+<div class="bg-white rounded-2xl p-6 shadow-sm border border-[#e5e7eb] flex flex-col gap-3 group hover:border-red-400/50 transition-colors">
+<div class="flex items-center justify-between">
+<p class="text-[#647587] text-sm font-semibold uppercase tracking-wide">Total Gastos</p>
+<div class="size-10 rounded-full bg-red-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-red-600">arrow_downward</span>
+</div>
+</div>
+<p class="text-[#111417] text-4xl font-bold tracking-tight">$ 8,450.00</p>
+<div class="flex items-center gap-2">
+<span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold">+5%</span>
+<span class="text-[#647587] text-sm">vs. mes anterior</span>
+</div>
+</div>
+<!-- Balance Card -->
+<div class="bg-primary text-white rounded-2xl p-6 shadow-md flex flex-col gap-3 relative overflow-hidden">
+<!-- Decorative background circle -->
+<div class="absolute -top-10 -right-10 size-40 rounded-full bg-white/10 pointer-events-none"></div>
+<div class="flex items-center justify-between relative z-10">
+<p class="text-white/80 text-sm font-semibold uppercase tracking-wide">Balance Final</p>
+<div class="size-10 rounded-full bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white">account_balance_wallet</span>
+</div>
+</div>
+<p class="text-white text-4xl font-bold tracking-tight relative z-10">$ 6,750.00</p>
+<div class="flex items-center gap-2 relative z-10">
+<span class="bg-white/20 text-white px-2 py-0.5 rounded text-xs font-bold">+8%</span>
+<span class="text-white/70 text-sm">margen de ahorro</span>
+</div>
+</div>
+</div>
+<!-- Secondary Actions -->
+<div class="flex justify-end gap-4 mt-2">
+<button class="flex items-center gap-2 text-[#647587] hover:text-[#111417] font-medium px-4 py-2 hover:bg-white rounded-lg transition-colors">
+<span class="material-symbols-outlined">print</span>
+<span>Imprimir</span>
+</button>
+<button class="flex items-center gap-2 text-[#647587] hover:text-[#111417] font-medium px-4 py-2 hover:bg-white rounded-lg transition-colors">
+<span class="material-symbols-outlined">download</span>
+<span>Descargar PDF</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
