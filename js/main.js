@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // --- One-time Data Migration/Cleanup ---
+  const migrationKey = 'dataMigration20240105'; // Use a unique key for this migration
+  if (!localStorage.getItem(migrationKey)) {
+    // Clear any old, example data that might be stuck in localStorage
+    localStorage.removeItem('movements');
+    // Mark this migration as complete
+    localStorage.setItem(migrationKey, 'true');
+    console.log('One-time data cleanup complete.');
+  }
+
   // --- Modal Control ---
   const ingresoModal = document.getElementById('ingreso-modal');
   const gastoModal = document.getElementById('gasto-modal');
