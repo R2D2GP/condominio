@@ -17,16 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = modal.querySelector('form');
     if (form) form.reset();
     modal.removeAttribute('data-editing-id');
+    if (modal.updateCalendar) {
+      modal.updateCalendar(null); // Reset the calendar
+    }
   };
-
-  if (registrarIngresoBtn) registrarIngresoBtn.addEventListener('click', () => openModal(ingresoModal));
-  if (registrarGastoBtn) registrarGastoBtn.addEventListener('click', () => openModal(gastoModal));
-  closeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      closeModal(ingresoModal);
-      closeModal(gastoModal);
-    });
-  });
 
   // --- Calendar Control ---
   const setupFunctionalCalendar = (modalId) => {
@@ -38,22 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextMonthBtn = modal.querySelector('.next-month-btn');
     const calendarGrid = modal.querySelector('.calendar-grid');
 
-    if (!monthYearDisplay || !prevMonthBtn || !nextMonthBtn || !calendarGrid) {
-      return;
-    }
+    if (!monthYearDisplay || !prevMonthBtn || !nextMonthBtn || !calendarGrid) return;
 
     let currentDate = new Date();
-    let selectedDate = null;
+    let selectedDateObj = null;
 
     const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
     const renderCalendar = () => {
       const month = currentDate.getMonth();
       const year = currentDate.getFullYear();
-
       monthYearDisplay.textContent = `${monthNames[month]} ${year}`;
       calendarGrid.innerHTML = '';
-
       const dayLabels = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
       dayLabels.forEach(day => {
         const dayLabel = document.createElement('span');
@@ -61,25 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
         dayLabel.classList.add('text-gray-500', 'text-center');
         calendarGrid.appendChild(dayLabel);
       });
-
       const firstDayOfMonth = new Date(year, month, 1).getDay();
       const daysInMonth = new Date(year, month + 1, 0).getDate();
-
       for (let i = 0; i < firstDayOfMonth; i++) {
-        const emptyCell = document.createElement('span');
-        calendarGrid.appendChild(emptyCell);
+        calendarGrid.appendChild(document.createElement('span'));
       }
-
       for (let day = 1; day <= daysInMonth; day++) {
         const dayCell = document.createElement('span');
         dayCell.textContent = day;
         dayCell.classList.add('p-2', 'text-center', 'cursor-pointer', 'rounded-full', 'hover:bg-gray-200', 'dark:hover:bg-gray-700');
-        dayCell.dataset.date = new Date(year, month, day).toISOString().split('T')[0];
-
-        if (selectedDate && new Date(dayCell.dataset.date).toDateString() === new Date(selectedDate).toDateString()) {
+        const cellDate = new Date(year, month, day);
+        const cellDateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        dayCell.dataset.date = cellDateStr;
+        if (selectedDateObj && cellDate.toDateString() === selectedDateObj.toDateString()) {
           dayCell.classList.add('bg-green-500', 'text-white');
         }
-
         calendarGrid.appendChild(dayCell);
       }
     };
@@ -97,17 +83,47 @@ document.addEventListener('DOMContentLoaded', () => {
     calendarGrid.addEventListener('click', (event) => {
       const target = event.target;
       if (target.tagName === 'SPAN' && target.dataset.date) {
-        selectedDate = target.dataset.date;
-        modal.dataset.selectedDate = selectedDate;
+        const dateParts = target.dataset.date.split('-').map(Number);
+        selectedDateObj = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+        modal.dataset.selectedDate = target.dataset.date;
         renderCalendar();
       }
     });
 
+    modal.updateCalendar = (newDateStr) => {
+      if (!newDateStr) {
+        selectedDateObj = null;
+        currentDate = new Date();
+        modal.removeAttribute('data-selected-date');
+      } else {
+        const dateParts = newDateStr.split('-').map(Number);
+        const newDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+        selectedDateObj = newDate;
+        currentDate = new Date(newDate);
+        modal.dataset.selectedDate = newDateStr;
+      }
+      renderCalendar();
+    };
     renderCalendar();
   };
 
   setupFunctionalCalendar('ingreso-modal');
   setupFunctionalCalendar('gasto-modal');
+
+  if (registrarIngresoBtn) registrarIngresoBtn.addEventListener('click', () => {
+    ingresoModal.updateCalendar(null); // Reset calendar
+    openModal(ingresoModal);
+  });
+  if (registrarGastoBtn) registrarGastoBtn.addEventListener('click', () => {
+    gastoModal.updateCalendar(null); // Reset calendar
+    openModal(gastoModal);
+  });
+  closeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      closeModal(ingresoModal);
+      closeModal(gastoModal);
+    });
+  });
 
   // --- Data Handling ---
   const saveIngresoBtn = ingresoModal.querySelector('.save-button');
@@ -239,17 +255,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (movement.type === 'income') {
           ingresoModal.setAttribute('data-editing-id', movement.id);
           document.getElementById('ingreso-monto').value = movement.amount;
-          ingresoModal.dataset.selectedDate = movement.date;
           document.getElementById('ingreso-departamento').value = movement.department;
           document.getElementById('ingreso-inquilino').value = movement.tenant;
           document.getElementById('ingreso-descripcion').value = movement.description;
+          ingresoModal.updateCalendar(movement.date);
           openModal(ingresoModal);
         } else {
           gastoModal.setAttribute('data-editing-id', movement.id);
           document.getElementById('gasto-monto').value = movement.amount;
-          gastoModal.dataset.selectedDate = movement.date;
           document.getElementById('gasto-descripcion').value = movement.description;
           document.getElementById('gasto-notas').value = movement.notes;
+          gastoModal.updateCalendar(movement.date);
           openModal(gastoModal);
         }
       }
