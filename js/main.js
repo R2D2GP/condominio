@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const hideModal = () => {
       modal.classList.add('hidden');
       modal.classList.remove('flex');
+      // Reset form on close
+      const form = modal.querySelector('form');
+      if (form) form.reset();
+      modal.removeAttribute('data-editing-id');
     };
 
     openBtn.addEventListener('click', showModal);
@@ -110,43 +114,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const gastoForm = document.getElementById('gasto-modal');
   const saveIngresoBtn = ingresoForm.querySelector('.save-button');
   const saveGastoBtn = gastoForm.querySelector('.save-button');
+  const tableBody = document.querySelector('tbody');
+  const tableFooter = document.querySelector('.table-footer');
 
   const renderMovements = () => {
     const movements = getMovements();
-    const tableBody = document.querySelector('tbody');
     if (!tableBody) return;
     tableBody.innerHTML = '';
 
-    movements.forEach(movement => {
-      const row = document.createElement('tr');
-      row.classList.add('hover:bg-gray-50', 'dark:hover:bg-gray-800/50', 'transition-colors');
-      const formattedAmount = movement.type === 'income' ? `+S/${movement.amount.toFixed(2)}` : `-S/${movement.amount.toFixed(2)}`;
-      const amountColor = movement.type === 'income' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400';
+    if (movements.length === 0) {
+      if (tableFooter) tableFooter.style.display = 'none';
+      const emptyRow = document.createElement('tr');
+      emptyRow.innerHTML = `<td colspan="6" class="p-4 text-center text-gray-500">No hay movimientos registrados.</td>`;
+      tableBody.appendChild(emptyRow);
+    } else {
+      if (tableFooter) tableFooter.style.display = 'block';
+      movements.forEach(movement => {
+        const row = document.createElement('tr');
+        row.classList.add('hover:bg-gray-50', 'dark:hover:bg-gray-800/50', 'transition-colors');
+        const formattedAmount = movement.type === 'income' ? `+S/${movement.amount.toFixed(2)}` : `-S/${movement.amount.toFixed(2)}`;
+        const amountColor = movement.type === 'income' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400';
 
-      row.innerHTML = `
-        <td class="p-4 text-gray-600 dark:text-gray-300 text-sm whitespace-nowrap">${movement.date}</td>
-        <td class="p-4">
-          <div class="flex flex-col">
-            <span class="font-bold text-[#111418] dark:text-white text-base">${movement.department || 'N/A'}</span>
-            <span class="text-xs text-gray-500">${movement.tenant || ''}</span>
-          </div>
-        </td>
-        <td class="p-4">
-          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${movement.type === 'income' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200' : 'bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200'}">${movement.type === 'income' ? 'Ingreso' : 'Egreso'}</span>
-        </td>
-        <td class="p-4 text-base text-gray-800 dark:text-gray-200">${movement.description}</td>
-        <td class="p-4 text-right font-bold ${amountColor} text-lg">${formattedAmount}</td>
-        <td class="p-4 text-center">
-          <button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
-            <span class="material-symbols-outlined">edit</span>
-          </button>
-          <button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
-            <span class="material-symbols-outlined">delete</span>
-          </button>
-        </td>
-      `;
-      tableBody.appendChild(row);
-    });
+        row.innerHTML = `
+          <td class="p-4 text-gray-600 dark:text-gray-300 text-sm whitespace-nowrap">${movement.date}</td>
+          <td class="p-4">
+            <div class="flex flex-col">
+              <span class="font-bold text-[#111418] dark:text-white text-base">${movement.department || 'N/A'}</span>
+              <span class="text-xs text-gray-500">${movement.tenant || ''}</span>
+            </div>
+          </td>
+          <td class="p-4">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${movement.type === 'income' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200' : 'bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200'}">${movement.type === 'income' ? 'Ingreso' : 'Egreso'}</span>
+          </td>
+          <td class="p-4 text-base text-gray-800 dark:text-gray-200">${movement.description}</td>
+          <td class="p-4 text-right font-bold ${amountColor} text-lg">${formattedAmount}</td>
+          <td class="p-4 text-center">
+            <button class="edit-button p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700" data-id="${movement.id}">
+              <span class="material-symbols-outlined">edit</span>
+            </button>
+            <button class="delete-button p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700" data-id="${movement.id}">
+              <span class="material-symbols-outlined">delete</span>
+            </button>
+          </td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
   };
 
   const updateSummary = () => {
@@ -167,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const department = document.getElementById('ingreso-departamento').value;
       const tenant = document.getElementById('ingreso-inquilino').value;
       const description = document.getElementById('ingreso-descripcion').value;
+      const editingId = parseInt(ingresoForm.getAttribute('data-editing-id'));
 
       if (!amount || !date || !description) {
         alert('Por favor, complete todos los campos obligatorios.');
@@ -174,7 +188,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const movement = { type: 'income', amount, date, department, tenant, description };
-      saveMovement(movement);
+
+      if (editingId) {
+        updateMovement(editingId, movement);
+      } else {
+        saveMovement(movement);
+      }
+
       renderMovements();
       updateSummary();
       ingresoForm.classList.add('hidden');
@@ -187,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const date = gastoForm.dataset.selectedDate;
       const description = document.getElementById('gasto-descripcion').value;
       const notes = document.getElementById('gasto-notas').value;
+      const editingId = parseInt(gastoForm.getAttribute('data-editing-id'));
 
       if (!amount || !date || !description) {
         alert('Por favor, complete todos los campos obligatorios.');
@@ -194,10 +215,57 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const movement = { type: 'expense', amount, date, description, notes };
-      saveMovement(movement);
+
+      if (editingId) {
+        updateMovement(editingId, movement);
+      } else {
+        saveMovement(movement);
+      }
+
       renderMovements();
       updateSummary();
       gastoForm.classList.add('hidden');
+    });
+  }
+
+  if (tableBody) {
+    tableBody.addEventListener('click', (event) => {
+      const target = event.target;
+      const editButton = target.closest('.edit-button');
+      const deleteButton = target.closest('.delete-button');
+
+      if (editButton) {
+        const movementId = parseInt(editButton.dataset.id);
+        const movement = getMovementById(movementId);
+
+        if (movement.type === 'income') {
+          ingresoForm.setAttribute('data-editing-id', movement.id);
+          document.getElementById('ingreso-monto').value = movement.amount;
+          ingresoForm.dataset.selectedDate = movement.date;
+          document.getElementById('ingreso-departamento').value = movement.department;
+          document.getElementById('ingreso-inquilino').value = movement.tenant;
+          document.getElementById('ingreso-descripcion').value = movement.description;
+          ingresoForm.classList.remove('hidden');
+          ingresoForm.classList.add('flex');
+        } else {
+          gastoForm.setAttribute('data-editing-id', movement.id);
+          document.getElementById('gasto-monto').value = movement.amount;
+          gastoForm.dataset.selectedDate = movement.date;
+          document.getElementById('gasto-descripcion').value = movement.description;
+          document.getElementById('gasto-notas').value = movement.notes;
+          gastoForm.classList.remove('hidden');
+          gastoForm.classList.add('flex');
+        }
+      }
+
+      if (deleteButton) {
+        const movementId = parseInt(deleteButton.dataset.id);
+        if (confirm('¿Está seguro de que desea eliminar este movimiento?')) {
+          deleteMovement(movementId);
+          renderMovements();
+          updateSummary();
+        }
+      }
     });
   }
 
