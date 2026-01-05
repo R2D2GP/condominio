@@ -1,32 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
   // --- Modal Control ---
-  const setupModal = (modalId, openBtnId, closeBtnSelector) => {
-    const modal = document.getElementById(modalId);
-    const openBtn = document.getElementById(openBtnId);
-    if (!modal || !openBtn) return;
+  const ingresoModal = document.getElementById('ingreso-modal');
+  const gastoModal = document.getElementById('gasto-modal');
+  const registrarIngresoBtn = document.getElementById('registrar-ingreso-btn');
+  const registrarGastoBtn = document.getElementById('registrar-gasto-btn');
+  const closeButtons = document.querySelectorAll('.close-button, .cancel-button');
 
-    const closeBtns = modal.querySelectorAll(closeBtnSelector);
-
-    const showModal = () => {
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    };
-
-    const hideModal = () => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      // Reset form on close
-      const form = modal.querySelector('form');
-      if (form) form.reset();
-      modal.removeAttribute('data-editing-id');
-    };
-
-    openBtn.addEventListener('click', showModal);
-    closeBtns.forEach(btn => btn.addEventListener('click', hideModal));
+  const openModal = (modal) => {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
   };
 
-  setupModal('ingreso-modal', 'registrar-ingreso-btn', '.close-button, .cancel-button');
-  setupModal('gasto-modal', 'registrar-gasto-btn', '.close-button, .cancel-button');
+  const closeModal = (modal) => {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    const form = modal.querySelector('form');
+    if (form) form.reset();
+    modal.removeAttribute('data-editing-id');
+  };
+
+  if (registrarIngresoBtn) registrarIngresoBtn.addEventListener('click', () => openModal(ingresoModal));
+  if (registrarGastoBtn) registrarGastoBtn.addEventListener('click', () => openModal(gastoModal));
+  closeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      closeModal(ingresoModal);
+      closeModal(gastoModal);
+    });
+  });
 
   // --- Calendar Control ---
   const setupFunctionalCalendar = (modalId) => {
@@ -110,10 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFunctionalCalendar('gasto-modal');
 
   // --- Data Handling ---
-  const ingresoForm = document.getElementById('ingreso-modal');
-  const gastoForm = document.getElementById('gasto-modal');
-  const saveIngresoBtn = ingresoForm.querySelector('.save-button');
-  const saveGastoBtn = gastoForm.querySelector('.save-button');
+  const saveIngresoBtn = ingresoModal.querySelector('.save-button');
+  const saveGastoBtn = gastoModal.querySelector('.save-button');
   const tableBody = document.querySelector('tbody');
   const tableFooter = document.querySelector('.table-footer');
 
@@ -176,11 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (saveIngresoBtn) {
     saveIngresoBtn.addEventListener('click', () => {
       const amount = parseFloat(document.getElementById('ingreso-monto').value);
-      const date = ingresoForm.dataset.selectedDate;
+      const date = ingresoModal.dataset.selectedDate;
       const department = document.getElementById('ingreso-departamento').value;
       const tenant = document.getElementById('ingreso-inquilino').value;
       const description = document.getElementById('ingreso-descripcion').value;
-      const editingId = parseInt(ingresoForm.getAttribute('data-editing-id'));
+      const editingId = parseInt(ingresoModal.getAttribute('data-editing-id'));
 
       if (!amount || !date || !description) {
         alert('Por favor, complete todos los campos obligatorios.');
@@ -197,17 +195,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       renderMovements();
       updateSummary();
-      ingresoForm.classList.add('hidden');
+      closeModal(ingresoModal);
     });
   }
 
   if (saveGastoBtn) {
     saveGastoBtn.addEventListener('click', () => {
       const amount = parseFloat(document.getElementById('gasto-monto').value);
-      const date = gastoForm.dataset.selectedDate;
+      const date = gastoModal.dataset.selectedDate;
       const description = document.getElementById('gasto-descripcion').value;
       const notes = document.getElementById('gasto-notas').value;
-      const editingId = parseInt(gastoForm.getAttribute('data-editing-id'));
+      const editingId = parseInt(gastoModal.getAttribute('data-editing-id'));
 
       if (!amount || !date || !description) {
         alert('Por favor, complete todos los campos obligatorios.');
@@ -224,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       renderMovements();
       updateSummary();
-      gastoForm.classList.add('hidden');
+      closeModal(gastoModal);
     });
   }
 
@@ -239,22 +237,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const movement = getMovementById(movementId);
 
         if (movement.type === 'income') {
-          ingresoForm.setAttribute('data-editing-id', movement.id);
+          ingresoModal.setAttribute('data-editing-id', movement.id);
           document.getElementById('ingreso-monto').value = movement.amount;
-          ingresoForm.dataset.selectedDate = movement.date;
+          ingresoModal.dataset.selectedDate = movement.date;
           document.getElementById('ingreso-departamento').value = movement.department;
           document.getElementById('ingreso-inquilino').value = movement.tenant;
           document.getElementById('ingreso-descripcion').value = movement.description;
-          ingresoForm.classList.remove('hidden');
-          ingresoForm.classList.add('flex');
+          openModal(ingresoModal);
         } else {
-          gastoForm.setAttribute('data-editing-id', movement.id);
+          gastoModal.setAttribute('data-editing-id', movement.id);
           document.getElementById('gasto-monto').value = movement.amount;
-          gastoForm.dataset.selectedDate = movement.date;
+          gastoModal.dataset.selectedDate = movement.date;
           document.getElementById('gasto-descripcion').value = movement.description;
           document.getElementById('gasto-notas').value = movement.notes;
-          gastoForm.classList.remove('hidden');
-          gastoForm.classList.add('flex');
+          openModal(gastoModal);
         }
       }
 
