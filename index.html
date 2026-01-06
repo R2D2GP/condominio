@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panel Principal - Condominio Los Andes</title>
+<!-- Fonts and Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<link href="styles/main.css" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1a2632",
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display overflow-hidden">
+<div class="flex h-screen w-full">
+<!-- Sidebar -->
+<aside class="w-72 bg-surface-light dark:bg-surface-dark border-r border-[#dce0e5] dark:border-gray-800 flex flex-col shrink-0 transition-all duration-300 hidden md:flex">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-12 shrink-0 relative overflow-hidden bg-primary/10">
+<div class="absolute inset-0 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">apartment</span>
+</div>
+</div>
+<div class="flex flex-col">
+<h1 class="text-[#111417] dark:text-white text-lg font-bold leading-normal">Condominio B1</h1>
+<p class="text-[#647587] dark:text-gray-400 text-sm font-normal leading-normal">Panel Admin</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 text-primary" href="index.html">
+<span class="material-symbols-outlined text-primary fill-1">grid_view</span>
+<p class="text-primary text-base font-bold leading-normal">Inicio</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="inquilinos.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">group</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Inquilinos</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="movimientos.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">payments</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Pagos</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="reporte.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">description</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Reportes</p>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 h-full overflow-y-auto bg-background-light dark:bg-background-dark relative">
+<div class="max-w-[1200px] mx-auto p-6 md:p-8 flex flex-col gap-8 pb-20">
+<!-- Page Heading -->
+<header class="flex flex-col md:flex-row md:justify-between md:items-end gap-4">
+<div class="flex flex-col gap-2">
+<h2 class="text-[#111418] dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Panel Principal</h2>
+<p class="text-[#617589] dark:text-gray-400 text-lg font-normal leading-normal">Resumen económico de Octubre 2023</p>
+</div>
+<div class="bg-white dark:bg-surface-dark px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-gray-500">calendar_today</span>
+<span class="text-sm font-medium dark:text-gray-300">Octubre 2023</span>
+</div>
+</header>
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Income Card -->
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-surface-dark border border-[#dbe0e6] dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-700 dark:text-green-400">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<p class="text-[#617589] dark:text-gray-400 text-base font-medium">Ingresos del Mes</p>
+</div>
+<div>
+<p id="income-total" class="text-[#111418] dark:text-white text-4xl font-bold leading-tight tracking-tight">S/0.00</p>
+<div class="flex items-center gap-1 mt-2 text-[#078838] dark:text-green-400">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<p class="text-sm font-medium">+5% vs mes anterior</p>
+</div>
+</div>
+</div>
+<!-- Expenses Card -->
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-surface-dark border border-[#dbe0e6] dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-red-100 dark:bg-red-900/30 rounded-lg text-red-700 dark:text-red-400">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<p class="text-[#617589] dark:text-gray-400 text-base font-medium">Gastos del Mes</p>
+</div>
+<div>
+<p id="expense-total" class="text-[#111418] dark:text-white text-4xl font-bold leading-tight tracking-tight">S/0.00</p>
+<div class="flex items-center gap-1 mt-2 text-[#e73908] dark:text-red-400">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400"><span class="text-[#e73908] dark:text-red-400">-2%</span> bajo lo esperado</p>
+</div>
+</div>
+</div>
+<!-- Balance Card (Highlighted) -->
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-gradient-to-br from-primary to-[#0f65c0] text-white shadow-lg relative overflow-hidden group">
+<!-- Abstract decoration -->
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-xl group-hover:bg-white/20 transition-all"></div>
+<div class="flex items-center gap-3 relative z-10">
+<div class="p-2 bg-white/20 rounded-lg text-white">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<p class="text-white/90 text-base font-medium">Saldo Actual (Caja)</p>
+</div>
+<div class="relative z-10">
+<p id="balance-total" class="text-white text-5xl font-bold leading-tight tracking-tight">S/0.00</p>
+<div class="flex items-center gap-1 mt-2 text-white/80">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<p class="text-sm font-medium">Finanzas Saludables</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Section -->
+<div class="flex flex-col gap-4">
+<h2 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">Acciones Rápidas</h2>
+<div class="flex flex-wrap gap-4">
+<button id="registrar-ingreso-btn" class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-primary hover:bg-primary/90 text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Registrar Ingreso</span>
+</button>
+<button id="registrar-gasto-btn" class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-white dark:bg-surface-dark border-2 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 text-[#111418] dark:text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">remove_circle</span>
+<span>Registrar Gasto</span>
+</button>
+</div>
+</div>
+<!-- Monthly Summary / Recent Transactions -->
+<div class="flex flex-col gap-4 mt-2">
+<div class="flex justify-between items-center">
+<h2 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">Movimientos Recientes</h2>
+<a href="movimientos.html" class="text-primary font-bold text-sm hover:underline">Ver todo</a>
+</div>
+<div class="rounded-xl border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-surface-dark overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-700">
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400">Fecha</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400">Departamento</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400">Categoría</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400 w-1/2">Descripción</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400 text-right">Monto</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400 text-center">Acción</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+<!-- Dynamic content will be inserted here by JavaScript -->
+</tbody>
+</table>
+</div>
+<div class="table-footer bg-gray-50 dark:bg-gray-800/30 p-4 text-center border-t border-gray-100 dark:border-gray-700">
+<p class="text-sm text-gray-500">Mostrando últimos 4 movimientos</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<!-- Modal Registrar Ingreso -->
+<div id="ingreso-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center p-4 z-50">
+    <div class="bg-white dark:bg-surface-dark rounded-xl shadow-lg w-full max-w-3xl transform transition-all p-8">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <h2 class="text-2xl font-bold text-[#111418] dark:text-white">Registrar Nuevo Ingreso</h2>
+                <p class="text-gray-500 dark:text-gray-400">Complete los datos del ingreso recibido por el condominio.</p>
+            </div>
+            <button type="button" class="close-button p-2 -m-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <!-- Form -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Left Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="ingreso-monto" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Monto del ingreso (S/)</label>
+                    <div class="relative">
+                        <input type="text" id="ingreso-monto" value="0.00" class="w-full h-12 px-4 py-2 text-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                        <span class="absolute inset-y-0 right-4 flex items-center text-gray-500">S/</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Fecha de recepción</label>
+                    <div class="p-4 border rounded-lg dark:border-gray-600">
+                        <div class="flex justify-between items-center mb-4">
+                            <button class="prev-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_left</span></button>
+                            <span class="month-year-display font-bold"></span>
+                            <button class="next-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_right</span></button>
+                        </div>
+                        <div class="calendar-grid grid grid-cols-7 text-center text-sm gap-y-2">
+                            <!-- Calendar days will be inserted here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="ingreso-departamento" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Número de Departamento</label>
+                    <input type="text" id="ingreso-departamento" placeholder="Ej: 101" class="w-full h-12 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                    <label for="ingreso-inquilino" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Nombre del Inquilino (Opcional)</label>
+                    <input type="text" id="ingreso-inquilino" placeholder="Ej: Familia González" class="w-full h-12 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                    <label for="ingreso-descripcion" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Descripción</label>
+                    <select id="ingreso-descripcion" class="w-full h-12 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                        <option>Seleccione un tipo</option>
+                        <option>Cuota de Mantenimiento</option>
+                        <option>Alquiler de Espacio Común</option>
+                        <option>Otros Ingresos</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="flex justify-end gap-4 mt-8">
+            <button type="button" class="cancel-button h-12 px-6 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 font-bold">Cancelar</button>
+<button type="button" class="save-button h-12 px-6 rounded-lg bg-green-600 hover:bg-green-700 text-white font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined">save</span>
+                Guardar Ingreso
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Registrar Gasto -->
+<div id="gasto-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center p-4 z-50">
+    <div class="bg-white dark:bg-surface-dark rounded-xl shadow-lg w-full max-w-3xl transform transition-all p-8">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <h2 class="text-2xl font-bold text-[#111418] dark:text-white">Registrar Nuevo Gasto</h2>
+                <p class="text-gray-500 dark:text-gray-400">Complete los datos del gasto realizado por el condominio.</p>
+            </div>
+            <button type="button" class="close-button p-2 -m-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <!-- Form -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Left Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="gasto-monto" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Monto del gasto (S/)</label>
+                    <div class="relative">
+                        <input type="text" id="gasto-monto" value="0.00" class="w-full h-12 px-4 py-2 text-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                        <span class="absolute inset-y-0 right-4 flex items-center text-gray-500">S/</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Fecha del gasto</label>
+                    <div class="p-4 border rounded-lg dark:border-gray-600">
+                        <div class="flex justify-between items-center mb-4">
+                            <button class="prev-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_left</span></button>
+                            <span class="month-year-display font-bold"></span>
+                            <button class="next-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_right</span></button>
+                        </div>
+                        <div class="calendar-grid grid grid-cols-7 text-center text-sm gap-y-2">
+                            <!-- Calendar days will be inserted here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="gasto-descripcion" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Descripción del Gasto</label>
+                    <input type="text" id="gasto-descripcion" placeholder="Ej: Pago de servicio de luz" class="w-full h-12 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                    <label for="gasto-notas" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Notas adicionales (Opcional)</label>
+                    <textarea id="gasto-notas" rows="5" placeholder="Escriba aquí cualquier detalle extra..." class="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="flex justify-end gap-4 mt-8">
+            <button type="button" class="cancel-button h-12 px-6 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 font-bold">Cancelar</button>
+<button type="button" class="save-button h-12 px-6 rounded-lg bg-green-600 hover:bg-green-700 text-white font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined">save</span>
+                Guardar Gasto
+            </button>
+        </div>
+    </div>
+</div>
+<script src="js/storage.js"></script>
+<script src="js/main.js"></script>
+</body></html>
