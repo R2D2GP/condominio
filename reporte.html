@@ -29,43 +29,51 @@
             },
         }
     </script>
-<style>
-        body { font-family: 'Lexend', 'Noto Sans', sans-serif; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-    </style>
+<link href="styles/main.css" rel="stylesheet"/>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-[#111417]">
-<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-<!-- Top Navigation -->
-<header class="bg-white border-b border-[#f0f2f4] sticky top-0 z-50">
-<div class="px-6 md:px-10 py-3 flex items-center justify-between">
-<div class="flex items-center gap-4">
-<div class="text-primary size-8 flex items-center justify-center bg-primary/10 rounded-lg">
-<span class="material-symbols-outlined text-primary">apartment</span>
+<body class="bg-background-light dark:bg-background-dark text-[#111417] dark:text-white font-display flex h-screen overflow-hidden">
+<div class="flex h-screen w-full">
+<aside class="w-72 bg-surface-light dark:bg-surface-dark border-r border-[#dce0e5] dark:border-gray-800 flex flex-col shrink-0 transition-all duration-300 hidden md:flex">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-12 shrink-0 relative overflow-hidden bg-primary/10">
+<div class="absolute inset-0 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">apartment</span>
 </div>
-<h2 class="text-[#111417] text-xl font-bold tracking-tight">Condominio Gestión</h2>
 </div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="#">Inicio</a>
-<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="#">Ingresos</a>
-<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="#">Gastos</a>
-<a class="text-primary text-sm font-bold" href="#">Reportes</a>
-<a class="text-[#647587] hover:text-primary text-sm font-medium transition-colors" href="#">Configuración</a>
+<div class="flex flex-col">
+<h1 class="text-[#111417] dark:text-white text-lg font-bold leading-normal">Condominio B1</h1>
+<p class="text-[#647587] dark:text-gray-400 text-sm font-normal leading-normal">Panel Admin</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="index.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">grid_view</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Inicio</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="inquilinos.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">group</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Inquilinos</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="movimientos.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">payments</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Pagos</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 text-primary" href="reporte.html">
+<span class="material-symbols-outlined text-primary fill-1">description</span>
+<p class="text-primary text-base font-bold leading-normal">Reportes</p>
+</a>
 </nav>
-<div class="flex items-center gap-4">
-<div class="size-10 rounded-full bg-cover bg-center border border-[#e5e7eb]" data-alt="User profile photo of a middle-aged man" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC4coRRRSOevXNChV93NClN0D0WBNDNO2ZpMr1uZHIjcfn_cfDmsWnEbUanixZrd4G-0fVbsMX6cK-HS1_S2g-jhgHPEqgA-e_Rhqrqvds1xEuULrBhttH1YzmVY2s6eK-BISf0C3D6JomA6evD7R36U_yIHLBAohPGwrOhpfPOWHrRg5u8E6HhflBFyARJUpA_rTk9N1PjV2LWmQihqXiJxsffhQUEWdrcnVvOU7btkkZ2IIR8j1iH6pYg9dcWDmKw8QLGQBxlCfGw");'></div>
-</div>
-</div>
-</header>
-<!-- Main Content -->
-<main class="flex-1 flex flex-col items-center py-10 px-4 md:px-10">
+</aside>
+<main class="flex-1 h-full overflow-y-auto bg-background-light dark:bg-background-dark relative">
 <div class="w-full max-w-[960px] flex flex-col gap-8">
 <!-- Page Heading -->
 <div class="flex flex-col gap-2">
-<div class="flex items-center gap-2 text-primary/80 mb-2">
+<a href="index.html" class="flex items-center gap-2 text-primary/80 mb-2">
 <span class="material-symbols-outlined text-lg">arrow_back</span>
 <span class="text-sm font-medium cursor-pointer">Volver al panel</span>
-</div>
+</a>
 <h1 class="text-[#111417] text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Reporte por Fechas</h1>
 <p class="text-[#647587] text-lg font-normal leading-relaxed max-w-2xl">
                         Seleccione la fecha de inicio y fin para consultar los movimientos económicos del condominio.
@@ -240,7 +248,7 @@
 <span class="material-symbols-outlined text-green-600">arrow_upward</span>
 </div>
 </div>
-<p class="text-[#111417] text-4xl font-bold tracking-tight">$ 15,200.00</p>
+<p class="text-[#111417] text-4xl font-bold tracking-tight">S/ 15,200.00</p>
 <div class="flex items-center gap-2">
 <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-bold">+12%</span>
 <span class="text-[#647587] text-sm">vs. mes anterior</span>
@@ -254,7 +262,7 @@
 <span class="material-symbols-outlined text-red-600">arrow_downward</span>
 </div>
 </div>
-<p class="text-[#111417] text-4xl font-bold tracking-tight">$ 8,450.00</p>
+<p class="text-[#111417] text-4xl font-bold tracking-tight">S/ 8,450.00</p>
 <div class="flex items-center gap-2">
 <span class="bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold">+5%</span>
 <span class="text-[#647587] text-sm">vs. mes anterior</span>
@@ -270,7 +278,7 @@
 <span class="material-symbols-outlined text-white">account_balance_wallet</span>
 </div>
 </div>
-<p class="text-white text-4xl font-bold tracking-tight relative z-10">$ 6,750.00</p>
+<p class="text-white text-4xl font-bold tracking-tight relative z-10">S/ 6,750.00</p>
 <div class="flex items-center gap-2 relative z-10">
 <span class="bg-white/20 text-white px-2 py-0.5 rounded text-xs font-bold">+8%</span>
 <span class="text-white/70 text-sm">margen de ahorro</span>

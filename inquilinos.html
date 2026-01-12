@@ -34,26 +34,7 @@
             },
         }
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        /* Custom scrollbar for better aesthetics */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8; 
-        }
-    </style>
+<link href="styles/main.css" rel="stylesheet"/>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#111417] dark:text-white font-display flex h-screen overflow-hidden">
 <!-- Sidebar -->
@@ -66,45 +47,29 @@
 </div>
 </div>
 <div class="flex flex-col">
-<h1 class="text-[#111417] dark:text-white text-lg font-bold leading-normal">CondoGest</h1>
+<h1 class="text-[#111417] dark:text-white text-lg font-bold leading-normal">Condominio B1</h1>
 <p class="text-[#647587] dark:text-gray-400 text-sm font-normal leading-normal">Panel Admin</p>
 </div>
 </div>
 </div>
 <nav class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2">
-<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="#">
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="index.html">
 <span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">grid_view</span>
 <p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Inicio</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 text-primary" href="#">
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 text-primary" href="inquilinos.html">
 <span class="material-symbols-outlined text-primary fill-1">group</span>
 <p class="text-primary text-base font-bold leading-normal">Inquilinos</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="#">
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="movimientos.html">
 <span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">payments</span>
 <p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Pagos</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="#">
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="reporte.html">
 <span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">description</span>
 <p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Reportes</p>
 </a>
-<div class="my-2 border-t border-[#dce0e5] dark:border-gray-800"></div>
-<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="#">
-<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">settings</span>
-<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Configuración</p>
-</a>
 </nav>
-<div class="p-4 border-t border-[#dce0e5] dark:border-gray-800">
-<div class="flex items-center gap-3 px-3 py-2 cursor-pointer">
-<div class="size-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden" data-alt="Profile picture avatar placeholder">
-<img alt="Admin user avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6xpCjHbpjO8RbTDAwUFh1WeHi9t-6BUwdUOxpRIpRaNYHdbn9fKxsrH1ILJ8y3iw7RLUBhq6WYhxa_V-lBDLrBzLr7jMMeIU2iIvT0Jc5IrHf7B-Trpxn3bdaVntJyxVjPyjf22PmqXC5XyYZt-z1aMy5QR4vPwYc2DZFzYT1sVoIa6UK-D8O8O4VcUYfTf4NsZ5sZNuKtnS4M3nz56BrcriaWQMGG5yBPcDX3IMUPKMV1W7F8QQCdvEva5wY3GiXPzkorwjp6wHY"/>
-</div>
-<div>
-<p class="text-sm font-bold text-[#111417] dark:text-white">Admin</p>
-<p class="text-xs text-[#647587] dark:text-gray-400">Cerrar Sesión</p>
-</div>
-</div>
-</div>
 </aside>
 <!-- Main Content -->
 <main class="flex-1 flex flex-col h-full overflow-hidden relative">

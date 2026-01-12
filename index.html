@@ -13,6 +13,7 @@
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <!-- Theme Configuration -->
+<link href="styles/main.css" rel="stylesheet"/>
 <script>
       tailwind.config = {
         darkMode: "class",
@@ -36,48 +37,39 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display overflow-hidden">
 <div class="flex h-screen w-full">
-<!-- Sidebar Navigation -->
-<aside class="w-72 bg-surface-light dark:bg-surface-dark border-r border-gray-200 dark:border-gray-800 flex-col hidden md:flex h-full transition-colors duration-200">
-<div class="flex flex-col h-full p-4">
-<!-- User Profile -->
-<div class="flex gap-3 mb-8 items-center p-2">
-<div class="bg-center bg-no-repeat bg-cover rounded-full size-12 shadow-sm" data-alt="Portrait of the administrator" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAg3ThMgV6UvWhS8rul6mjoEqEiphGl4kYzU9ThY7xLWRL-m-GV6PxOdfPwqJc_G2VAycOy2VR5y4foUe6YR0rqu5RN1U-sl3WTaU_mY2WlXztDVyrHUo147NBBauS4gVXapUG8l12P9J3aBQEACI3LhEOqvw8QN897l3UpeyE2FVE9Aj4g6D3MXuaTS_HwuVccgIXyblgxX3336IjZJSHYOUW9pvL9lZGnKmwAhU3vboQZHavxzW1WBVCfhl03iI0QCF_Jjh4H6bCm");'></div>
+<!-- Sidebar -->
+<aside class="w-72 bg-surface-light dark:bg-surface-dark border-r border-[#dce0e5] dark:border-gray-800 flex flex-col shrink-0 transition-all duration-300 hidden md:flex">
+<div class="p-6 pb-2">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-12 shrink-0 relative overflow-hidden bg-primary/10">
+<div class="absolute inset-0 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">apartment</span>
+</div>
+</div>
 <div class="flex flex-col">
-<h1 class="text-[#111418] dark:text-white text-base font-bold leading-normal">Hola, Roberto</h1>
-<p class="text-[#617589] dark:text-gray-400 text-sm font-normal leading-normal">Condominio Los Andes</p>
+<h1 class="text-[#111417] dark:text-white text-lg font-bold leading-normal">Condominio B1</h1>
+<p class="text-[#647587] dark:text-gray-400 text-sm font-normal leading-normal">Panel Admin</p>
 </div>
 </div>
-<!-- Nav Menu -->
-<nav class="flex flex-col gap-2 flex-1">
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary group transition-all duration-200" href="#">
-<span class="material-symbols-outlined text-[24px]">dashboard</span>
-<p class="text-base font-bold leading-normal">Panel Principal</p>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 text-primary" href="index.html">
+<span class="material-symbols-outlined text-primary fill-1">grid_view</span>
+<p class="text-primary text-base font-bold leading-normal">Inicio</p>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#111418] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200" href="#">
-<span class="material-symbols-outlined text-[24px]">group</span>
-<p class="text-base font-medium leading-normal">Vecinos</p>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="inquilinos.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">group</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Inquilinos</p>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#111418] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200" href="#">
-<span class="material-symbols-outlined text-[24px]">arrow_circle_up</span>
-<p class="text-base font-medium leading-normal">Ingresos</p>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="movimientos.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">payments</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Pagos</p>
 </a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#111418] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200" href="#">
-<span class="material-symbols-outlined text-[24px]">arrow_circle_down</span>
-<p class="text-base font-medium leading-normal">Gastos</p>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#111418] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200" href="#">
-<span class="material-symbols-outlined text-[24px]">description</span>
-<p class="text-base font-medium leading-normal">Reportes</p>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="reporte.html">
+<span class="material-symbols-outlined text-[#647587] dark:text-gray-400 group-hover:text-primary transition-colors">description</span>
+<p class="text-[#111417] dark:text-gray-200 text-base font-medium leading-normal">Reportes</p>
 </a>
 </nav>
-<!-- Footer / Logout -->
-<div class="mt-auto">
-<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200" href="#">
-<span class="material-symbols-outlined text-[24px]">logout</span>
-<p class="text-base font-medium leading-normal">Cerrar Sesión</p>
-</a>
-</div>
-</div>
 </aside>
 <!-- Main Content Area -->
 <main class="flex-1 h-full overflow-y-auto bg-background-light dark:bg-background-dark relative">
@@ -104,7 +96,7 @@
 <p class="text-[#617589] dark:text-gray-400 text-base font-medium">Ingresos del Mes</p>
 </div>
 <div>
-<p class="text-[#111418] dark:text-white text-4xl font-bold leading-tight tracking-tight">$1,200.00</p>
+<p class="text-[#111418] dark:text-white text-4xl font-bold leading-tight tracking-tight">S/1,200.00</p>
 <div class="flex items-center gap-1 mt-2 text-[#078838] dark:text-green-400">
 <span class="material-symbols-outlined text-sm">trending_up</span>
 <p class="text-sm font-medium">+5% vs mes anterior</p>
@@ -120,7 +112,7 @@
 <p class="text-[#617589] dark:text-gray-400 text-base font-medium">Gastos del Mes</p>
 </div>
 <div>
-<p class="text-[#111418] dark:text-white text-4xl font-bold leading-tight tracking-tight">$450.00</p>
+<p class="text-[#111418] dark:text-white text-4xl font-bold leading-tight tracking-tight">S/450.00</p>
 <div class="flex items-center gap-1 mt-2 text-[#e73908] dark:text-red-400">
 <span class="material-symbols-outlined text-sm">trending_down</span>
 <p class="text-sm font-medium text-gray-500 dark:text-gray-400"><span class="text-[#e73908] dark:text-red-400">-2%</span> bajo lo esperado</p>
@@ -138,7 +130,7 @@
 <p class="text-white/90 text-base font-medium">Saldo Actual (Caja)</p>
 </div>
 <div class="relative z-10">
-<p class="text-white text-5xl font-bold leading-tight tracking-tight">$750.00</p>
+<p class="text-white text-5xl font-bold leading-tight tracking-tight">S/750.00</p>
 <div class="flex items-center gap-1 mt-2 text-white/80">
 <span class="material-symbols-outlined text-sm">check_circle</span>
 <p class="text-sm font-medium">Finanzas Saludables</p>
@@ -150,11 +142,11 @@
 <div class="flex flex-col gap-4">
 <h2 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">Acciones Rápidas</h2>
 <div class="flex flex-wrap gap-4">
-<button class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-primary hover:bg-primary/90 text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
+<button id="registrar-ingreso-btn" class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-primary hover:bg-primary/90 text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
 <span class="material-symbols-outlined">add_circle</span>
 <span>Registrar Ingreso</span>
 </button>
-<button class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-white dark:bg-surface-dark border-2 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 text-[#111418] dark:text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
+<button id="registrar-gasto-btn" class="flex-1 min-w-[200px] md:max-w-xs cursor-pointer flex items-center justify-center gap-3 rounded-xl h-14 px-6 bg-white dark:bg-surface-dark border-2 border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 text-[#111418] dark:text-white text-lg font-bold shadow-sm transition-all active:scale-[0.98]">
 <span class="material-symbols-outlined">remove_circle</span>
 <span>Registrar Gasto</span>
 </button>
@@ -164,7 +156,7 @@
 <div class="flex flex-col gap-4 mt-2">
 <div class="flex justify-between items-center">
 <h2 class="text-[#111418] dark:text-white text-2xl font-bold leading-tight">Movimientos Recientes</h2>
-<button class="text-primary font-bold text-sm hover:underline">Ver todo</button>
+<a href="movimientos.html" class="text-primary font-bold text-sm hover:underline">Ver todo</a>
 </div>
 <div class="rounded-xl border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-surface-dark overflow-hidden shadow-sm">
 <div class="overflow-x-auto">
@@ -172,10 +164,11 @@
 <thead>
 <tr class="bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-700">
 <th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400">Fecha</th>
-<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400 w-1/2">Descripción</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400">Departamento</th>
 <th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400">Categoría</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400 w-1/2">Descripción</th>
 <th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400 text-right">Monto</th>
-<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400 text-center">Estado</th>
+<th class="p-4 text-xs uppercase tracking-wide font-bold text-gray-500 dark:text-gray-400 text-center">Acción</th>
 </tr>
 </thead>
 <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
@@ -184,37 +177,40 @@
 <td class="p-4 text-gray-600 dark:text-gray-300 text-sm whitespace-nowrap">24 Oct</td>
 <td class="p-4">
 <div class="flex flex-col">
-<span class="font-bold text-[#111418] dark:text-white text-base">Cuota Mantenimiento #302</span>
+<span class="font-bold text-[#111418] dark:text-white text-base">#302</span>
 <span class="text-xs text-gray-500">Familia González</span>
 </div>
 </td>
 <td class="p-4">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
-                                                Ingreso
-                                            </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">Ingreso</span>
 </td>
-<td class="p-4 text-right font-bold text-green-600 dark:text-green-400 text-lg">+$150.00</td>
+<td class="p-4 text-base text-gray-800 dark:text-gray-200">Cuota de Mantenimiento</td>
+<td class="p-4 text-right font-bold text-green-600 dark:text-green-400 text-lg">+S/150.00</td>
 <td class="p-4 text-center">
-<span class="material-symbols-outlined text-green-600 dark:text-green-400" title="Confirmado">check_circle</span>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">delete</span>
+</button>
 </td>
 </tr>
 <!-- Row 2 -->
 <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
 <td class="p-4 text-gray-600 dark:text-gray-300 text-sm whitespace-nowrap">22 Oct</td>
+<td class="p-4 text-gray-500 text-sm">N/A</td>
 <td class="p-4">
-<div class="flex flex-col">
-<span class="font-bold text-[#111418] dark:text-white text-base">Pago Servicio de Jardinería</span>
-<span class="text-xs text-gray-500">Mantenimiento áreas verdes</span>
-</div>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200">Egreso</span>
 </td>
-<td class="p-4">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-200">
-                                                Gasto
-                                            </span>
-</td>
-<td class="p-4 text-right font-bold text-[#111418] dark:text-white text-lg">-$80.00</td>
+<td class="p-4 text-base text-gray-800 dark:text-gray-200">Pago Servicio de Jardinería</td>
+<td class="p-4 text-right font-bold text-red-600 dark:text-red-400 text-lg">-S/80.00</td>
 <td class="p-4 text-center">
-<span class="material-symbols-outlined text-gray-400" title="Pendiente">schedule</span>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">delete</span>
+</button>
 </td>
 </tr>
 <!-- Row 3 -->
@@ -222,37 +218,40 @@
 <td class="p-4 text-gray-600 dark:text-gray-300 text-sm whitespace-nowrap">20 Oct</td>
 <td class="p-4">
 <div class="flex flex-col">
-<span class="font-bold text-[#111418] dark:text-white text-base">Cuota Mantenimiento #101</span>
+<span class="font-bold text-[#111418] dark:text-white text-base">#101</span>
 <span class="text-xs text-gray-500">Sr. Ramírez</span>
 </div>
 </td>
 <td class="p-4">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">
-                                                Ingreso
-                                            </span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-200">Ingreso</span>
 </td>
-<td class="p-4 text-right font-bold text-green-600 dark:text-green-400 text-lg">+$150.00</td>
+<td class="p-4 text-base text-gray-800 dark:text-gray-200">Cuota de Mantenimiento</td>
+<td class="p-4 text-right font-bold text-green-600 dark:text-green-400 text-lg">+S/150.00</td>
 <td class="p-4 text-center">
-<span class="material-symbols-outlined text-green-600 dark:text-green-400" title="Confirmado">check_circle</span>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">delete</span>
+</button>
 </td>
 </tr>
 <!-- Row 4 -->
 <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
 <td class="p-4 text-gray-600 dark:text-gray-300 text-sm whitespace-nowrap">18 Oct</td>
+<td class="p-4 text-gray-500 text-sm">N/A</td>
 <td class="p-4">
-<div class="flex flex-col">
-<span class="font-bold text-[#111418] dark:text-white text-base">Reparación Bomba de Agua</span>
-<span class="text-xs text-gray-500">Emergencia técnica</span>
-</div>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200">Egreso</span>
 </td>
-<td class="p-4">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200">
-                                                Emergencia
-                                            </span>
-</td>
-<td class="p-4 text-right font-bold text-[#111418] dark:text-white text-lg">-$250.00</td>
+<td class="p-4 text-base text-gray-800 dark:text-gray-200">Reparación Bomba de Agua</td>
+<td class="p-4 text-right font-bold text-red-600 dark:text-red-400 text-lg">-S/250.00</td>
 <td class="p-4 text-center">
-<span class="material-symbols-outlined text-green-600 dark:text-green-400" title="Confirmado">check_circle</span>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">delete</span>
+</button>
 </td>
 </tr>
 </tbody>
@@ -266,4 +265,136 @@
 </div>
 </main>
 </div>
+
+<!-- Modal Registrar Ingreso -->
+<div id="ingreso-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center p-4 z-50">
+    <div class="bg-white dark:bg-surface-dark rounded-xl shadow-lg w-full max-w-3xl transform transition-all p-8">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <h2 class="text-2xl font-bold text-[#111418] dark:text-white">Registrar Nuevo Ingreso</h2>
+                <p class="text-gray-500 dark:text-gray-400">Complete los datos del ingreso recibido por el condominio.</p>
+            </div>
+            <button type="button" class="close-button p-2 -m-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <!-- Form -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Left Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="ingreso-monto" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Monto del ingreso (S/)</label>
+                    <div class="relative">
+                        <input type="text" id="ingreso-monto" value="0.00" class="w-full h-12 px-4 py-2 text-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                        <span class="absolute inset-y-0 right-4 flex items-center text-gray-500">S/</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Fecha de recepción</label>
+                    <div class="p-4 border rounded-lg dark:border-gray-600">
+                        <div class="flex justify-between items-center mb-4">
+                            <button class="prev-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_left</span></button>
+                            <span class="month-year-display font-bold"></span>
+                            <button class="next-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_right</span></button>
+                        </div>
+                        <div class="calendar-grid grid grid-cols-7 text-center text-sm gap-y-2">
+                            <!-- Calendar days will be inserted here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="ingreso-departamento" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Número de Departamento</label>
+                    <input type="text" id="ingreso-departamento" placeholder="Ej: 101" class="w-full h-12 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                    <label for="ingreso-inquilino" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Nombre del Inquilino (Opcional)</label>
+                    <input type="text" id="ingreso-inquilino" placeholder="Ej: Familia González" class="w-full h-12 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                    <label for="ingreso-descripcion" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Descripción</label>
+                    <select id="ingreso-descripcion" class="w-full h-12 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                        <option>Seleccione un tipo</option>
+                        <option>Cuota de Mantenimiento</option>
+                        <option>Alquiler de Espacio Común</option>
+                        <option>Otros Ingresos</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="flex justify-end gap-4 mt-8">
+            <button type="button" class="cancel-button h-12 px-6 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 font-bold">Cancelar</button>
+            <button type="button" class="h-12 px-6 rounded-lg bg-green-600 hover:bg-green-700 text-white font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined">save</span>
+                Guardar Ingreso
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Registrar Gasto -->
+<div id="gasto-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center p-4 z-50">
+    <div class="bg-white dark:bg-surface-dark rounded-xl shadow-lg w-full max-w-3xl transform transition-all p-8">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <h2 class="text-2xl font-bold text-[#111418] dark:text-white">Registrar Nuevo Gasto</h2>
+                <p class="text-gray-500 dark:text-gray-400">Complete los datos del gasto realizado por el condominio.</p>
+            </div>
+            <button type="button" class="close-button p-2 -m-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <!-- Form -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Left Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="gasto-monto" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Monto del gasto (S/)</label>
+                    <div class="relative">
+                        <input type="text" id="gasto-monto" value="0.00" class="w-full h-12 px-4 py-2 text-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                        <span class="absolute inset-y-0 right-4 flex items-center text-gray-500">S/</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Fecha del gasto</label>
+                    <div class="p-4 border rounded-lg dark:border-gray-600">
+                        <div class="flex justify-between items-center mb-4">
+                            <button class="prev-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_left</span></button>
+                            <span class="month-year-display font-bold"></span>
+                            <button class="next-month-btn p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-symbols-outlined">chevron_right</span></button>
+                        </div>
+                        <div class="calendar-grid grid grid-cols-7 text-center text-sm gap-y-2">
+                            <!-- Calendar days will be inserted here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="flex flex-col gap-6">
+                <div>
+                    <label for="gasto-descripcion" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Descripción del Gasto</label>
+                    <input type="text" id="gasto-descripcion" placeholder="Ej: Pago de servicio de luz" class="w-full h-12 px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                    <label for="gasto-notas" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Notas adicionales (Opcional)</label>
+                    <textarea id="gasto-notas" rows="5" placeholder="Escriba aquí cualquier detalle extra..." class="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary"></textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="flex justify-end gap-4 mt-8">
+            <button type="button" class="cancel-button h-12 px-6 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 font-bold">Cancelar</button>
+            <button type="button" class="h-12 px-6 rounded-lg bg-green-600 hover:bg-green-700 text-white font-bold flex items-center gap-2">
+                <span class="material-symbols-outlined">save</span>
+                Guardar Gasto
+            </button>
+        </div>
+    </div>
+</div>
+<script src="js/calendar.js"></script>
 </body></html>
